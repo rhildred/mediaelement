@@ -87,7 +87,11 @@ var myListener = {
 	    jQuery( "#slider" ).slider({value:0, min:0, max:100, 
 	    	stop:jQuery.proxy(this.setPosition, this),
 	    	start:jQuery.proxy(this.startSliding, this)});
-	    jQuery("#myFlash").attr("src", evt.target.href);
+	    try{
+		    jQuery("#myFlash").attr("src", evt.target.href);	    	
+	    }catch(err){
+	    	console.log(err.message);
+	    }
 	    this.bChangingPosition = false;
 	    jQuery("#placeholder").show();
 	    jQuery("#video").hide();
